@@ -1,6 +1,8 @@
 # 爆速WEBサーバ"H2O"に触れてみよう
 2017.11.9 サポーターズ勉強会資料
 
+https://speakerdeck.com/vtryo/bao-su-websaba-h2o-nihong-retemiyou
+
 # 環境手順
 
 * 任意の作業フォルダを作成して移動する
