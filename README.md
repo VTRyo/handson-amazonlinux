@@ -31,16 +31,16 @@
 
 * yumレポジトリを登録する
 
-`vim /etc/yum.repos.d/`
+`vim /etc/yum.repos.d/bintray-tatsushid-h2o-rpm.repo`
 
 ```
 #bintray-tatsushid-h2o-rpm - packages by tatsushid from Bintray
 [bintray-tatsushid-h2o-rpm]
 name=bintray-tatsushid-h2o-rpm
 #If your system is CentOS
-baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/$releasever/$basearch/
+#baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/$releasever/$basearch/
 #If your system is Amazon Linux
-#baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/6/$basearch/
+baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/6/$basearch/
 gpgcheck=0
 repo_gpgcheck=0
 enabled=1
@@ -50,6 +50,25 @@ enabled=1
 
 `sudo yum install h2o`
 
+* サービス起動
+
+`/etc/init.d/h2o start`
+
+* phpインストール
+
+`sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm`
+
+`sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
+
+`sudo yum -y install libwebp --disablerepo=amzn-main --enablerepo=epel`
+
+`sudo yum -y install httpd libmcrypt libtool-ltdl libtidy libXpm libtiff autoconf automake gd-last enchant-aspell`
+
+`sudo yum -y install php php-fpm --disablerepo=amzn-main --enablerepo=remi-php70`
+
+* サービス起動
+
+`/etc/init.d/php-fpm start`
 
 # 共通手順
 
