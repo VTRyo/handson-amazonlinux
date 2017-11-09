@@ -21,15 +21,17 @@
 
 * ディレクトリを移動する
 
-`cd handson/ansible`
+`cd handson-amazonlinux/ansible`
 
 * ansible実行
 
-`ansible-playbook -i hosts playbook.yml`
+`/usr/local/bin/ansible-playbook -i hosts playbook.yml`
 
 ## 他うまくいかない場合は手動(CentOS系)
 
 * yumレポジトリを登録する
+
+`vim /etc/yum.repos.d/`
 
 ```
 #bintray-tatsushid-h2o-rpm - packages by tatsushid from Bintray
@@ -55,11 +57,18 @@ enabled=1
 
 * 任意のブラウザ（Chrome、Firefox、など）
 
-`localhost:8080`
+`<IPadress>`
 
 ### php-fpmと連携してみる
 
-* /etc/php-fpm.d/www.confのlistenを変更する
+* /etc/php-fpm.d/www.confの編集
+
+・追記
+listen = /var/run/php-fpm/php-fpm.sock
+
+・変更
+listen.owner = nobody ;コメントアウトはずす
+listen.group = nobody ;コメントアウトはずす
 
 ```
 ; Start a new pool named 'www'.
@@ -91,8 +100,6 @@ listen.group = nobody ;コメントアウトはずす
 * /etc/h2o/h2o.confに追記する
 
 ```
-user: nobody
-
 file.custom-handler:
   extension: .php
   fastcgi.connect:
@@ -164,4 +171,4 @@ pid-file: /var/run/h2o/h2o.pid
 
 * 任意のブラウザにて認証が表示されるか見る（Chrome、Firefox、など）
 
-`localhost:8080`
+`<IPadress>`
