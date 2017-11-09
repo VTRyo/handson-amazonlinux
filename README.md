@@ -17,7 +17,7 @@
 
 * リポジトリを任意をフォルダにクローンする。
 
-`git clone https://github.com/VTRyo/handson.git`
+`git clone https://github.com/VTRyo/handson-amazonlinux.git`
 
 * ディレクトリを移動する
 
