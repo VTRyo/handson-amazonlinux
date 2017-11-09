@@ -1,0 +1,21 @@
+- name: copy yum.repo h2o
+  copy:
+    src: "roles/h2o/files/bintray-tatsushid-h2o-rpm.repo"
+    dest: "/etc/yum.repos.d/"
+
+- name: install h2o
+  yum: name=h2o state=present
+
+- name: service start h2o
+  service: name=h2o enabled=yes state=started
+
+- name: mkdir mruby
+  file:
+    path: /etc/h2o/mruby
+    state: directory
+
+- name: template deploy mruby
+  template:
+    src: roles/h2o/template/mruby/htpasswd.rb
+    dest: /etc/h2o/mruby/
+  notify: restart h2o

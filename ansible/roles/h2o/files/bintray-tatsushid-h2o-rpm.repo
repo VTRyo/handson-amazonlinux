@@ -1,0 +1,10 @@
+#bintray-tatsushid-h2o-rpm - packages by tatsushid from Bintray
+[bintray-tatsushid-h2o-rpm]
+name=bintray-tatsushid-h2o-rpm
+#If your system is CentOS
+#baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/$releasever/$basearch/
+#If your system is Amazon Linux
+baseurl=https://dl.bintray.com/tatsushid/h2o-rpm/centos/6/$basearch/
+gpgcheck=0
+repo_gpgcheck=0
+enabled=1
