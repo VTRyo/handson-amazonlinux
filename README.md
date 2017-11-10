@@ -54,7 +54,7 @@ enabled=1
 
 * サービス起動
 
-`/etc/init.d/h2o start`
+`sudo /etc/init.d/h2o start`
 
 * phpインストール
 
@@ -70,7 +70,7 @@ enabled=1
 
 * サービス起動
 
-`/etc/init.d/php-fpm start`
+`sudo /etc/init.d/php-fpm start`
 
 # 共通手順
 
@@ -130,9 +130,9 @@ file.custom-handler:
 
 * サービス再起動
 
-`/etc/init.d/php-fpm restart`
+`sudo /etc/init.d/php-fpm restart`
 
-`/etc/init.d/h2o restart`
+`sudo /etc/init.d/h2o restart`
 
 * 通信確認
 
@@ -175,7 +175,6 @@ hosts:
              deny { user_agent.match(/curl/i) && ! addr.start_with?("192.168.") }
              use Htpasswd.new("/var/www/html/.htpasswd", "realm-name") { path.start_with?("/") }
            }
-
         file.dir: /var/www/html
 access-log: /var/log/h2o/access.log
 error-log: /var/log/h2o/error.log
@@ -184,11 +183,11 @@ pid-file: /var/run/h2o/h2o.pid
 
 * syntaxチェック
 
-`h2o -t -c /etc/h2o/h2o.conf`
+`sudo h2o -t -c /etc/h2o/h2o.conf`
 
 * サービス再起動
 
-`/etc/init.d/h2o restart`
+`sudo /etc/init.d/h2o restart`
 
 * 任意のブラウザにて認証が表示されるか見る（Chrome、Firefox、など）
 
